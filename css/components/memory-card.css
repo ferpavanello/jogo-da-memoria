@@ -7,9 +7,34 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  margin-left: 20px;
+}
+
+.memory-card.-active {
+  position: relative;
+  background-color: #fff;
+  z-index: -2;
 }
 
 .memory-card > .icon {
   width: 100px;
   height: 100px;
+}
+
+.memory-card > .icon.-active {
+  transform: translateY(-6px);
+}
+
+.memory-card.-active > .ball {
+  position: absolute;
+  background-color: #d4d4d4;
+  width: 94px;
+  height: 94px;
+  border-radius: 50%;
+  z-index: -1;
+  transform: translateY(6px);
+}
+
+#root {
+  display: flex;
 }
