@@ -1,30 +1,30 @@
 const $root = document.querySelector("#root");
 const $memoryCard = document.createElement("article");
-const $memoryCardActive = document.createElement("article");
-const $icon = `
+const $memoryCardFront = document.createElement("article");
+
+const $iconCollab = `
   <img
     src="img/icon-collabcode.png"
     alt="Gueio mascote da CollabCode"
     class="icon"
   />
 `;
+
 const $iconJs = `
   <img
     src="img/icon-js.png"
-    alt="JS Selected"
+    alt="Ícone de um livro da linguagem JavaScript"
     class="icon -active"
   />
 `;
 
 $memoryCard.classList.add("memory-card");
-
-$memoryCardActive.classList.add("memory-card");
-$memoryCardActive.classList.add("-active");
-
 $root.insertBefore($memoryCard, null);
-$root.insertBefore($memoryCardActive, null);
 
-$memoryCard.insertAdjacentHTML("afterbegin", $icon);
+$memoryCardFront.classList.add("memory-card");
+$memoryCardFront.classList.add("-front");
+$root.insertBefore($memoryCardFront, $memoryCard);
 
-$memoryCardActive.insertAdjacentHTML("afterbegin", "<div class='ball'></div>");
-$memoryCardActive.insertAdjacentHTML("afterbegin", $iconJs);
+$memoryCard.insertAdjacentHTML("afterbegin", $iconCollab);
+
+$memoryCardFront.insertAdjacentHTML("afterbegin", $iconJs);
