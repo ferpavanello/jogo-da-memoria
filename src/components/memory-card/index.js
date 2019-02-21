@@ -10,6 +10,9 @@ function createMemoryCard() {
   `;
 
   $memoryCard.classList.add("memory-card");
+  $memoryCard.onclick = () => {
+    console.log("Gueio");
+  };
   $wrapCards.insertBefore($memoryCard, null);
 
   $memoryCard.insertAdjacentHTML("afterbegin", $iconCollab);
@@ -28,6 +31,9 @@ function createMemoryCardFront() {
 
   $memoryCardFront.classList.add("memory-card");
   $memoryCardFront.classList.add("-front");
+  $memoryCardFront.onclick = () => {
+    console.log("JS");
+  };
   $wrapCards.insertBefore($memoryCardFront, null);
 
   $memoryCardFront.insertAdjacentHTML("afterbegin", $iconJs);
