@@ -1,22 +1,9 @@
-const createMemoryCard = () => {
+const createMemoryCard = (add, image) => {
   return `
-  <article class="memory-card">
-    <img
-      src="img/icon-collabcode.png"
-      alt="Gueio mascote da CollabCode"
-      class="icon"
-      onclick="handleClick()"
-    />
-  </article>
-  `;
-};
-
-const createMemoryCardFront = () => {
-  return `
-    <article class="memory-card -front">
+    <article class="memory-card ${add}">
       <img
-        src="img/icon-js.png"
-        alt="Ícone de um livro da linguagem JavaScript"
+        src="${image}"
+        alt="Ícone"
         class="icon -active"
         onclick="handleClick()"
       />
