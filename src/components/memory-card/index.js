@@ -1,16 +1,12 @@
-const createMemoryCard = (add, image) => {
-  return `
-    <article class="memory-card ${add}">
-      <img
-        src="${image}"
-        alt="Ícone"
-        class="icon -active"
-        onclick="handleClick()"
-      />
-    </article>
-  `;
-};
+const createMemoryCard = (src, alt, nameClass) => `
+  <article class="memory-card ${nameClass}">
+    <img
+      src="${src}"
+      alt="${alt}"
+      class="icon"
+      onclick="handleClick()"
+    />
+  </article>
+`;
 
-function handleClick() {
-  console.log("Ae");
-}
+const handleClick = () => console.log("Ae");
