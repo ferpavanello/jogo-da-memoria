@@ -5,34 +5,34 @@ const $memoryCard = createMemoryCard({
   src: "img/icon-collabcode.png",
   alt: "Gueio mascote da CollabCode"
 });
-const $memoryCardFrontJs = createMemoryCard({
+const $memoryCardJs = createMemoryCard({
   src: "img/icon-js.png",
   alt: "Ícone de um livro de Javascript",
   className: "-front"
 });
-const $memoryCardFrontBug = createMemoryCard({
+const $memoryCardBug = createMemoryCard({
   src: "img/icon-bug.png",
   alt: "Ícone de um Bug",
   className: "-front"
 });
-const $memoryCardFrontPhone = createMemoryCard({
+const $memoryCardPhone = createMemoryCard({
   src: "img/icon-celular.png",
   alt: "Ícone de um Celular",
   className: "-front"
 });
-const $memoryCardFrontSettings = createMemoryCard({
+const $memoryCardSettings = createMemoryCard({
   src: "img/icon-settings.png",
-  alt: "Ícone de um livro de Javascript",
+  alt: "Ícone de configurações",
   className: "-front"
 });
 
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFrontJs);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFrontJs);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFrontBug);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFrontBug);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFrontPhone);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardFrontPhone);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCard);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJs);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJs);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardBug);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardBug);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardPhone);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardPhone);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardSettings);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardSettings);
 
 $root.insertAdjacentElement("beforeend", $cardsWrapper);
