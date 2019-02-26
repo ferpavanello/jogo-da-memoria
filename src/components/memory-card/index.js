@@ -42,15 +42,26 @@ function memoryCard() {
   $head.insertBefore($style, null);
 
   return ({ className, src, alt }) => `
-    <article class="memory-card ${className}">
+    <article class="memory-card ${className}" onclick="handleClick(this)">
       <img
         src="${src}"
         alt="${alt}"
         class="icon"
-        onclick="handleClick()"
       />
     </article>
   `;
 }
 
-const handleClick = () => console.log("Ae");
+const handleClick = card => {
+  let image = card.querySelector("img");
+
+  card.classList.toggle("-front");
+
+  if (card.classList.contains("-front")) {
+    image.src = "img/icon-js.png";
+    image.alt = "Ícone de um livro de Javascript";
+  } else {
+    image.src = "img/icon-collabcode.png";
+    image.alt = "Gueio mascote da CollabCode";
+  }
+};
