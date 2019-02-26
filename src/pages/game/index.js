@@ -4,29 +4,21 @@ const $cardsWrapper = createCardsWrapper();
 
 const createMemoryCard = memoryCard();
 
-const $memoryCard = createMemoryCard({
-  src: "img/icon-collabcode.png",
-  alt: "Gueio mascote da CollabCode"
-});
 const $memoryCardJs = createMemoryCard({
   src: "img/icon-js.png",
-  alt: "Ícone de um livro de Javascript",
-  className: "-front"
+  alt: "Ícone de um livro de Javascript"
 });
 const $memoryCardBug = createMemoryCard({
   src: "img/icon-bug.png",
-  alt: "Ícone de um Bug",
-  className: "-front"
+  alt: "Ícone de um Bug"
 });
 const $memoryCardPhone = createMemoryCard({
   src: "img/icon-celular.png",
-  alt: "Ícone de um Celular",
-  className: "-front"
+  alt: "Ícone de um Celular"
 });
 const $memoryCardSettings = createMemoryCard({
   src: "img/icon-settings.png",
-  alt: "Ícone de configurações",
-  className: "-front"
+  alt: "Ícone de configurações"
 });
 
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJs);
