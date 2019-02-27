@@ -76,4 +76,23 @@ function memoryCard() {
   `;
 }
 
-const handleClick = $component => $component.classList.toggle("-active");
+const handleClick = $component => {
+  let $list = document.querySelectorAll(".memory-card.-active");
+
+  if ($list.length <= 1) {
+    $component.classList.toggle("-active");
+    $list = document.querySelectorAll(".memory-card.-active");
+  }
+
+  if ($list.length == 2) {
+    setTimeout(changeToBack($list), 2000);
+  }
+};
+
+function changeToBack($listComponent) {
+  return () => {
+    $listComponent.forEach(function($children) {
+      $children.classList.remove("-active");
+    });
+  };
+}
