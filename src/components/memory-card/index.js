@@ -77,22 +77,21 @@ function memoryCard() {
 }
 
 const handleClick = $component => {
-  let $list = document.querySelectorAll(".memory-card.-active");
-
-  if ($list.length <= 1) {
+  if (qtdMemoryCardsActive < 2) {
     $component.classList.toggle("-active");
-    $list = document.querySelectorAll(".memory-card.-active");
   }
 
-  if ($list.length == 2) {
-    setTimeout(changeToBack($list), 2000);
+  if (qtdMemoryCardsActive == 1) {
+    setTimeout(() => {
+      const $activeMemoryCards = document.querySelectorAll(
+        ".memory-card.-active"
+      );
+
+      $activeMemoryCards.forEach($memoryCard => {
+        $memoryCard.classList.remove("-active");
+      });
+
+      qtdMemoryCardsActive = 0;
+    }, 1500);
   }
 };
-
-function changeToBack($listComponent) {
-  return () => {
-    $listComponent.forEach(function($children) {
-      $children.classList.remove("-active");
-    });
-  };
-}
