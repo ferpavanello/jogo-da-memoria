@@ -22,12 +22,12 @@ const $memoryCardSettings = createMemoryCard({
 });
 
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJs);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardBug);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardPhone);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardSettings);
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJs);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardBug);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardBug);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardPhone);
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardPhone);
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardSettings);
-$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardSettings);
+$cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardBug);
 
 $root.insertAdjacentElement("beforeend", $cardsWrapper);

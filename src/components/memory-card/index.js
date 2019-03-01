@@ -76,15 +76,28 @@ function memoryCard() {
   `;
 }
 
+let $lastElement = null;
+
 const handleClick = $component => {
-  if (qtdMemoryCardsActive < 2) {
-    $component.classList.toggle("-active");
+  if (
+    $lastElement &&
+    $component.querySelector("img").src == $lastElement.querySelector("img").src
+  ) {
+    $component.classList.add("-correct");
+    $lastElement.classList.add("-correct");
   }
+
+  if (qtdMemoryCardsActive < 2) {
+    $component.classList.add("-active");
+    $lastElement = $component;
+  }
+
+  console.log(qtdMemoryCardsActive);
 
   if (qtdMemoryCardsActive == 1) {
     setTimeout(() => {
       const $activeMemoryCards = document.querySelectorAll(
-        ".memory-card.-active"
+        ".memory-card.-active:not(.-correct)"
       );
 
       $activeMemoryCards.forEach($memoryCard => {
