@@ -23,11 +23,13 @@ function memoryCard() {
       position: absolute;
     }
 
-    .memory-card.-active .card {
+    .memory-card.-active .card,
+    .memory-card.-score .card {
       display: none;
     }
 
-    .memory-card.-active .card.-front {
+    .memory-card.-active .card.-front,
+    .memory-card.-score .card.-front {
       display: flex;
     }
 
@@ -76,35 +78,39 @@ function memoryCard() {
   `;
 }
 
-let $lastElement = null;
+let score = 0;
 
 const handleClick = $component => {
-  if (
-    $lastElement &&
-    $component.querySelector("img").src == $lastElement.querySelector("img").src
-  ) {
-    $component.classList.add("-correct");
-    $lastElement.classList.add("-correct");
-  }
+  if (!$component.classList.contains("-active")) {
+    if (qtdMemoryCardsActive < 2) {
+      $component.classList.toggle("-active");
+    }
 
-  if (qtdMemoryCardsActive < 2) {
-    $component.classList.add("-active");
-    $lastElement = $component;
-  }
+    if (qtdMemoryCardsActive == 1) {
+      const $memoryCards = document.querySelectorAll(".memory-card.-active");
 
-  console.log(qtdMemoryCardsActive);
+      if (
+        $memoryCards[0].querySelector(".-front .icon").getAttribute("src") ==
+        $memoryCards[1].querySelector(".-front .icon").getAttribute("src")
+      ) {
+        score++;
+        $memoryCards.forEach($memoryCard => {
+          $memoryCard.classList.add("-score");
+          $memoryCard.classList.remove("-active");
+        });
+      } else {
+        setTimeout(() => {
+          const $activeMemoryCards = document.querySelectorAll(
+            ".memory-card.-active"
+          );
 
-  if (qtdMemoryCardsActive == 1) {
-    setTimeout(() => {
-      const $activeMemoryCards = document.querySelectorAll(
-        ".memory-card.-active:not(.-correct)"
-      );
+          $activeMemoryCards.forEach($memoryCard => {
+            $memoryCard.classList.remove("-active");
+          });
 
-      $activeMemoryCards.forEach($memoryCard => {
-        $memoryCard.classList.remove("-active");
-      });
-
-      qtdMemoryCardsActive = 0;
-    }, 1500);
+          qtdMemoryCardsActive = 0;
+        }, 1500);
+      }
+    }
   }
 };
