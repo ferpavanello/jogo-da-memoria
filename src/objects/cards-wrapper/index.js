@@ -1,3 +1,5 @@
+let qtdMemoryCardsActive = 0;
+
 function createCardsWrapper() {
   const $cardsWrapper = document.createElement("section");
   $cardsWrapper.classList.add("cards-wrapper");
