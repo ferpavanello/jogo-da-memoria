@@ -80,13 +80,13 @@ const memoryCard = () => {
 
 const cardLogic = (function() {
   function activeMemoryCard($component) {
-    if (qtdMemoryCardsActive < 2) {
+    if (store.qtdMemoryCardsActive < 2) {
       $component.classList.add("-active");
     }
   }
 
   function checkCorrect() {
-    if (qtdMemoryCardsActive == 1) {
+    if (store.qtdMemoryCardsActive == 1) {
       const $activeMemoryCards = document.querySelectorAll(
         ".memory-card.-active"
       );
@@ -108,7 +108,7 @@ const cardLogic = (function() {
             $memoryCard.classList.remove("-active");
           });
 
-          qtdMemoryCardsActive = 0;
+          store.qtdMemoryCardsActive = 0;
         }, 1500);
       }
     }
