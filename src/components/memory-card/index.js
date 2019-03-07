@@ -1,8 +1,11 @@
-const memoryCard = () => {
-  const $head = document.querySelector("head");
-  const $style = document.createElement("style");
+const memoryCard = (function() {
+  const module = {};
 
-  $style.textContent = `
+  module.create = () => {
+    const $head = document.querySelector("head");
+    const $style = document.createElement("style");
+
+    $style.textContent = `
     .memory-card {
       width: 155px;
       height: 155px;
@@ -56,10 +59,10 @@ const memoryCard = () => {
       transform: translateY(-12px);
     }
   `;
-  $head.insertBefore($style, null);
+    $head.insertBefore($style, null);
 
-  return ({ src, alt }) => `
-    <div class="memory-card" onclick="cardLogic.handleClick(this)">
+    return ({ src, alt }) => `
+    <div class="memory-card" onclick="memoryCard.handleClick(this)">
       <article class="card -front">
         <img
           src="${src}"
@@ -76,17 +79,23 @@ const memoryCard = () => {
       </article>
     </div>
   `;
-};
+  };
 
-const cardLogic = (function() {
-  function activeMemoryCard($component) {
-    if (store.qtdMemoryCardsActive < 2) {
+  module.handleClick = $component => {
+    if (!$component.classList.contains("-active")) {
+      module._activeMemoryCard($component);
+      module._checkCorrect();
+    }
+  };
+
+  module._activeMemoryCard = $component => {
+    if (qtdMemoryCardsActive < 2) {
       $component.classList.add("-active");
     }
-  }
+  };
 
-  function checkCorrect() {
-    if (store.qtdMemoryCardsActive == 1) {
+  module._checkCorrect = () => {
+    if (qtdMemoryCardsActive == 1) {
       const $activeMemoryCards = document.querySelectorAll(
         ".memory-card.-active"
       );
@@ -108,18 +117,14 @@ const cardLogic = (function() {
             $memoryCard.classList.remove("-active");
           });
 
-          store.qtdMemoryCardsActive = 0;
+          qtdMemoryCardsActive = 0;
         }, 1500);
       }
     }
-  }
+  };
 
   return {
-    handleClick: function($component) {
-      if (!$component.classList.contains("-active")) {
-        activeMemoryCard($component);
-        checkCorrect();
-      }
-    }
+    create: module.create,
+    handleClick: module.handleClick
   };
 })();
