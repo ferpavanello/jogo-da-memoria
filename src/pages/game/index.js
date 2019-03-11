@@ -3,6 +3,8 @@
 
   const $cardsWrapper = createCardsWrapper();
   const createMemoryCard = memoryCard.create();
+  const $gameButton = gameButton.render();
+  const $lockingLayer = lockingLayer.render();
 
   const $pointBar = pointBar.create();
   const $memoryCardJs = createMemoryCard({
@@ -21,7 +23,6 @@
     src: "img/icon-settings.png",
     alt: "Ícone de configurações"
   });
-  const $gameButton = gameButton.render();
 
   $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJs);
   $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardBug);
@@ -34,5 +35,6 @@
 
   $root.insertAdjacentHTML("afterbegin", $pointBar);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
+  $root.insertAdjacentElement("beforeend", $lockingLayer);
   $root.insertAdjacentHTML("beforeend", $gameButton);
 })();
