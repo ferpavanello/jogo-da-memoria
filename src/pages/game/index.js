@@ -21,7 +21,7 @@
     src: "img/icon-settings.png",
     alt: "Ícone de configurações"
   });
-  const $buttonStart = buttonStart.create();
+  const $gameButton = gameButton.render();
 
   $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJs);
   $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardBug);
@@ -34,5 +34,5 @@
 
   $root.insertAdjacentHTML("afterbegin", $pointBar);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
-  $root.insertAdjacentHTML("beforeend", $buttonStart);
+  $root.insertAdjacentHTML("beforeend", $gameButton);
 })();
