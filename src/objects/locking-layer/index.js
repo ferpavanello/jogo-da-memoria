@@ -14,6 +14,12 @@ const lockingLayer = (function() {
         background-color: #000;
         opacity: 0.4;
       }
+
+      .locking-layer.-start {
+        visibility: hidden;
+        opacity: 0;
+        transition: all 600ms linear;
+      }
     `;
 
     $head.insertBefore($style, null);
