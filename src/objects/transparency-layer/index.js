@@ -1,4 +1,4 @@
-const lockingLayer = (function() {
+const transparencyLayer = (function() {
   const module = {};
 
   module._style = function() {
@@ -6,19 +6,12 @@ const lockingLayer = (function() {
     const $style = document.createElement("style");
 
     $style.textContent = `
-      .locking-layer {
+      .transparency-layer {
+        background-color: rgba(58, 64, 66, 0.5);
         position: absolute;
         top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #000;
-        opacity: 0.4;
-      }
-
-      .locking-layer.-start {
-        visibility: hidden;
-        opacity: 0;
-        transition: all 600ms linear;
+        height: 100vh;
+        width: 100vw;
       }
     `;
 
@@ -28,10 +21,9 @@ const lockingLayer = (function() {
   module.render = () => {
     module._style();
 
-    $layer = document.createElement("div");
-    $layer.classList.add("locking-layer");
-
-    return $layer;
+    return `
+      <div class="transparency-layer"></div>
+    `;
   };
 
   return {

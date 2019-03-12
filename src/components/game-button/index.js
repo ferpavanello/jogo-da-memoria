@@ -25,36 +25,20 @@ const gameButton = (function() {
         cursor: pointer;
         box-shadow: 0px 4px 8px #3a4042;
       }
-
-      .game-button.-start {
-        visibility: hidden;
-        opacity: 0;
-        transition: all 300ms linear;
-      }
     `;
 
     $head.insertBefore($style, null);
   };
 
-  module.handleClick = () => {
-    $gameButton = document.querySelector(".game-button");
-    $lockingLayer = document.querySelector(".locking-layer");
-
-    $gameButton.classList.add("-start");
-    $lockingLayer.classList.add("-start");
-    console.log($gameButton);
-  };
-
-  module.render = () => {
+  module.render = content => {
     module._style();
 
     return `
-      <button class="game-button" onclick=gameButton.handleClick()>Start</button>
+      <button class="game-button">${content}</button>
     `;
   };
 
   return {
-    render: module.render,
-    handleClick: module.handleClick
+    render: module.render
   };
 })();
