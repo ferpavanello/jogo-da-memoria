@@ -25,11 +25,13 @@ const gameButton = (function() {
         cursor: pointer;
         box-shadow: 0px 4px 8px #3a4042;
 
-        transition: opacity 200ms linear;
+        transition: all 200ms linear;
       }
 
       .game-button.-disable {
         opacity: 0;
+        transform: scale(2.5);
+        transform-origin: 75%;
       }
     `;
 
