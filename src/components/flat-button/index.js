@@ -20,10 +20,10 @@ const flatButton = (function() {
     $head.insertAdjacentElement("beforeend", $style);
   };
 
-  module.render = () => {
+  module.render = content => {
     module._style();
 
-    return `<button class="flat-button">Log in</button>`;
+    return `<button class="flat-button">${content}</button>`;
   };
 
   return {
