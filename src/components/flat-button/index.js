@@ -15,18 +15,31 @@ const flatButton = (function() {
         height: 176px;
         text-transform: uppercase;
       }
+
+      .flat-button.-selected {
+        background-color: #f25a70;
+      }
     `;
 
     $head.insertAdjacentElement("beforeend", $style);
   };
 
+  module.handleClick = $component => {
+    $componentSelected = document.querySelector(".flat-button.-selected");
+
+    if ($componentSelected) $componentSelected.classList.remove("-selected");
+
+    $component.classList.add("-selected");
+  };
+
   module.render = content => {
     module._style();
 
-    return `<button class="flat-button">${content}</button>`;
+    return `<button class="flat-button" onClick="flatButton.handleClick(this)">${content}</button>`;
   };
 
   return {
-    render: module.render
+    render: module.render,
+    handleClick: module.handleClick
   };
 })();
